@@ -6,18 +6,27 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@ToString
-@AllArgsConstructor
 @NoArgsConstructor
-@Getter
+@AllArgsConstructor
 @Entity
-public class Member {
+@Getter
+@ToString
+public class Coffee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
-    private String email;
+    private String name;
     @Column
-    private String password;
+    private String price;
+
+    public void patch(Coffee coffee) {
+        if(coffee.name != null) {
+            this.name = coffee.name;
+        }
+        if(coffee.price != null) {
+            this.price = coffee.price;
+        }
+    }
 
 }
