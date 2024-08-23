@@ -28,5 +28,4 @@ public class Coffee {
             this.price = coffee.price;
         }
     }
-
 }
