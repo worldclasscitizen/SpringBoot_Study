@@ -32,9 +32,15 @@ public class CoffeeApiController {
 
     // POST
     @PostMapping("/api/coffees")
-    public Coffee create(@RequestBody CoffeeDto dto) {
+    public ResponseEntity<Coffee> create(@RequestBody CoffeeDto dto) {
         Coffee coffee = dto.toEntity();
-        return coffeeRepository.save(coffee);
+        // 이 if 문은 어떤 기능을 하는가
+        // ID 값을 알아서 생성해주는 전략을 사용하고 있기 때문에, 요청 메시지의 BODY 에 id 를 명시하지 않아도 null 값이 될 일은 없다.
+        if(coffee.getId() != null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+        Coffee created = coffeeRepository.save(coffee);
+        return ResponseEntity.status(HttpStatus.OK).body(created);
     }
 
     // UPDATE
