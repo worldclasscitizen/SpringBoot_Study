@@ -114,7 +114,6 @@ class CommentRepositoryTest {
             List<Comment> expected = Arrays.asList(a, b, c);
             // 4. 비교 및 검증
             assertEquals(comments.toString(), expected.toString(), "Kim의 모든 댓글을 출력!");
-
         }
         {
             /* Case 3 : null 의 모든 댓글 조회 */
