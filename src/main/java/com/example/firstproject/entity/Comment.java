@@ -7,7 +7,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+
 @Entity
+/*
+스프링 빈에 등록시키는 게 아니라, JPA 엔티티에 등록한다.
+스프링 빈 -> 다른 클래스를 사용하려면 Autowired 로 의존성 주입을 받아 가져와서 사용해야 한다.
+JPA 엔티티 -> Entity 어노테이션만 붙이면 알아서 다른 클래스들이 주입된다.
+*/
 @Getter
 @ToString
 @AllArgsConstructor
